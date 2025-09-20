@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Learning Exercises</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .header {
+        background-color: #0d6efd;
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      .exercise {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .code-block {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 5px;
+        font-family: monospace;
+        margin: 1rem 0;
+      }
+      
+      .result-area {
+        background-color: #e9ecef;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        min-height: 100px;
+      }
+      .hint {
+        background-color: #fff3cd;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header text-center">
+      <h1>AJAX Learning Exercises</h1>
+      <p class="lead">
+        Practice your AJAX skills with these interactive exercises
+      </p>
+    </div>
+
+    <div class="container">
+      <!-- Exercise 1: AJAX Intro -->
+      <div class="exercise">
+        <h2>1. AJAX Introduction</h2>
+        <p>
+          Create a simple AJAX request to load a text file and display its
+          content.
+        </p>
+        <div class="code-block" id="intro">
+          // TODO: Create a function to load data from 'sample.txt'<br />
+          function loadTextFile() {<br />
+          &nbsp;&nbsp;// Step 1: Create an XMLHttpRequest object<br />
+          &nbsp;&nbsp;// Step 2: Configure the GET request for 'sample.txt'<br />
+          &nbsp;&nbsp;// Step 3: Set up the onload function to handle
+          response<br />
+          &nbsp;&nbsp;// Step 4: Send the request<br />
+          }
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary btn-hint" onclick="toggleHint(1)">
+            Show Hint
+          </button>
+          <button class="btn btn-primary " id="runIntro">
+            Run Code
+          </button>
+        </div>
+
+        <div class="hint" id="hint1">
+          <strong>Hint:</strong> Remember the basic steps:
+          <ol>
+            <li>
+              Create XMLHttpRequest object:
+              <code>const xhr = new XMLHttpRequest();</code>
+            </li>
+            <li>
+              Initialize request:
+              <code>xhr.open('GET', 'sample.txt', true);</code>
+            </li>
+            <li>
+              Handle response:
+              <code
+                >xhr.onload = function() { if (this.status === 200) { // process
+                response } };</code
+              >
+            </li>
+            <li>Send request: <code>xhr.send();</code></li>
+          </ol>
+        </div>
+
+        <div class="result-area" id="result1">Result will appear here...</div>
+      </div>
+
+      <!-- Exercise 2: AJAX Request -->
+      <div class="exercise">
+        <h2>2. AJAX Request Methods</h2>
+        <p>
+          Create a function that sends a GET request to a PHP file with
+          parameters and displays the response.
+        </p>
+        <div class="code-block">
+          // TODO: Create a function to send data to the server<br />
+          function sendGetRequest() {<br />
+          &nbsp;&nbsp;const name =
+          document.getElementById('nameInput').value;<br />
+          &nbsp;&nbsp;// Step 1: Create XMLHttpRequest object<br />
+          &nbsp;&nbsp;// Step 2: Initialize GET request to 'get_data.php?name='
+          + name<br />
+          &nbsp;&nbsp;// Step 3: Set up onload handler<br />
+          &nbsp;&nbsp;// Step 4: Send the request<br />
+          }
+        </div>
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Enter your name:</label>
+          <input type="text" class="form-control" id="nameInput" value="John" />
+        </div>
+        <button class="btn btn-secondary btn-hint" onclick="toggleHint(2)">
+          Show Hint
+        </button>
+        <div class="hint" id="hint2">
+          <strong>Hint:</strong> You need to:
+          <ol>
+            <li>Get the value from the input field</li>
+            <li>
+              Append it to the URL as a parameter:
+              <code>'get_data.php?name=' + encodeURIComponent(name)</code>
+            </li>
+            <li>Handle the response similar to the previous exercise</li>
+          </ol>
+        </div>
+        <button class="btn btn-primary " id="getRequestBtn">
+          Run Code
+        </button>
+        <div class="result-area" id="result2">Result will appear here...</div>
+      </div>
+
+      <!-- Exercise 3: AJAX Response -->
+      <div class="exercise">
+        <h2>3. Handling AJAX Responses</h2>
+        <p>
+          Create a function that processes a JSON response from a PHP file and
+          displays specific data.
+        </p>
+        <div class="code-block">
+          // TODO: Create a function to process JSON response<br />
+          function processJsonResponse() {<br />
+          &nbsp;&nbsp;// Step 1: Create XMLHttpRequest object<br />
+          &nbsp;&nbsp;// Step 2: Initialize GET request to 'user.php'<br />
+          &nbsp;&nbsp;// Step 3: Set up onload handler<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;// Inside handler: Parse JSON response and
+          display user info<br />
+          &nbsp;&nbsp;// Step 4: Send the request<br />
+          }
+        </div>
+        <button class="btn btn-secondary btn-hint" onclick="toggleHint(3)">
+          Show Hint
+        </button>
+        <div class="hint" id="hint3">
+          <strong>Hint:</strong> Remember to:
+          <ol>
+            <li>
+              Parse the JSON response:
+              <code>const user = JSON.parse(this.responseText);</code>
+            </li>
+            <li>
+              Access object properties: <code>user.name</code>,
+              <code>user.email</code>
+            </li>
+            <li>Display the information in the result area</li>
+          </ol>
+        </div>
+        <button class="btn btn-primary " id="processJSON">
+          Run Code
+        </button>
+        <div class="result-area" id="result3">Result will appear here...</div>
+      </div>
+
+      <!-- Exercise 4: AJAX with XML -->
+      <div class="exercise">
+        <h2>4. Working with XML Responses</h2>
+        <p>
+          Create a function that processes an XML response and extracts specific
+          data.
+        </p>
+        <div class="code-block">
+          // TODO: Create a function to process XML response<br />
+          function processXmlResponse() {<br />
+          &nbsp;&nbsp;// Step 1: Create XMLHttpRequest object<br />
+          &nbsp;&nbsp;// Step 2: Initialize GET request to 'books.xml'<br />
+          &nbsp;&nbsp;// Step 3: Set up onload handler<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;// Inside handler: Process XML and display
+          book titles<br />
+          &nbsp;&nbsp;// Step 4: Send the request<br />
+          }
+        </div>
+        <button class="btn btn-secondary btn-hint" onclick="toggleHint(4)">
+          Show Hint
+        </button>
+        <div class="hint" id="hint4">
+          <strong>Hint:</strong> For XML responses:
+          <ol>
+            <li>
+              Get the XML document:
+              <code>const xmlDoc = this.responseXML;</code>
+            </li>
+            <li>
+              Get elements by tag name:
+              <code>const books = xmlDoc.getElementsByTagName('book');</code>
+            </li>
+            <li>Loop through books and extract titles</li>
+          </ol>
+        </div>
+        <button class="btn btn-primary " id="xmlBtn">Run Code</button>
+        <div class="result-area" id="result4">Result will appear here...</div>
+      </div>
+
+      <!-- Exercise 5: AJAX with Database -->
+      <div class="exercise">
+        <h2>5. AJAX with Database</h2>
+        <p>
+          Create a function that sends a request to a PHP file which queries a
+          database and returns results.
+        </p>
+        <div class="code-block">
+          // TODO: Create a function to load users from database<br />
+          function loadUsers() {<br />
+          &nbsp;&nbsp;// Step 1: Create XMLHttpRequest object<br />
+          &nbsp;&nbsp;// Step 2: Initialize GET request to 'get_users.php'<br />
+          &nbsp;&nbsp;// Step 3: Set up onload handler<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;// Inside handler: Parse JSON and display
+          users in a table<br />
+          &nbsp;&nbsp;// Step 4: Send the request<br />
+          }
+        </div>
+        <button class="btn btn-secondary btn-hint" onclick="toggleHint(5)">
+          Show Hint
+        </button>
+        <div class="hint" id="hint5">
+          <strong>Hint:</strong> This is similar to Exercise 3 but with more
+          data:
+          <ol>
+            <li>
+              Parse the JSON response:
+              <code>const users = JSON.parse(this.responseText);</code>
+            </li>
+            <li>Loop through the users array and build HTML table rows</li>
+            <li>Display the table in the result area</li>
+          </ol>
+        </div>
+        <button class="btn btn-primary " id="loadUserBtn">
+          Run Code
+        </button>
+        <div class="result-area" id="result5">Result will appear here...</div>
+      </div>
+
+      <!-- Exercise 6: Error Handling -->
+      <div class="exercise">
+        <h2>6. AJAX Error Handling</h2>
+        <p>
+          Create a function that handles errors in AJAX requests appropriately.
+        </p>
+        <div class="code-block">
+          // TODO: Create a function with error handling<br />
+          function loadWithErrorHandling() {<br />
+          &nbsp;&nbsp;// Step 1: Create XMLHttpRequest object<br />
+          &nbsp;&nbsp;// Step 2: Initialize GET request to
+          'non_existent_file.txt'<br />
+          &nbsp;&nbsp;// Step 3: Set up onload handler to check status code<br />
+          &nbsp;&nbsp;// Step 4: Set up onerror handler for request failures<br />
+          &nbsp;&nbsp;// Step 5: Send the request<br />
+          }
+        </div>
+        <button class="btn btn-secondary btn-hint" onclick="toggleHint(6)">
+          Show Hint
+        </button>
+        <div class="hint" id="hint6">
+          <strong>Hint:</strong> Implement proper error handling:
+          <ol>
+            <li>
+              In onload, check if status is 200 (success) or something else
+              (error)
+            </li>
+            <li>
+              Set up an onerror handler:
+              <code>xhr.onerror = function() { // handle error };</code>
+            </li>
+            <li>Display appropriate messages for success and error cases</li>
+          </ol>
+        </div>
+        <button class="btn btn-primary " id="errorHandlerBtn">
+          Run Code
+        </button>
+        <div class="result-area" id="result6">Result will appear here...</div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+      <p>Rhyz Dela Cruz &copy; 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

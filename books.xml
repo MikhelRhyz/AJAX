@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <title>JavaScript: The Good Parts</title>
+        <author>Douglas Crockford</author>
+    </book>
+    <book>
+        <title>Eloquent JavaScript</title>
+        <author>Marijn Haverbeke</author>
+    </book>
+    <book>
+        <title>You Don't Know JS</title>
+        <author>Kyle Simpson</author>
+    </book>
+</library>

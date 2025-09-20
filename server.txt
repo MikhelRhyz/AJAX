@@ -1,0 +1,1 @@
+Hello! This text was loaded with an AJAX GET request.
